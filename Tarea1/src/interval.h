@@ -13,9 +13,9 @@ class interval
         /**
          * @brief constructor con parámetros que inicializa los miembros min y max
          */
-        interval(double min, double max)
+        interval(double min, double max):min(min),max(max)
         {
-            //TODO
+            
         }
 
         /**
@@ -23,7 +23,7 @@ class interval
          */
         double size() const
         {
-            //TODO
+            return max-min;
         }
 
         /**
@@ -35,7 +35,7 @@ class interval
          */
         bool contains(double x) const
         {
-            //TODO
+            return x>= min || x<=max;
         }
 
         bool surrounds(double x) const 
@@ -48,7 +48,13 @@ class interval
          */
         double clamp(double x) const
         {
-            //TODO
+            if (x>max) {
+            return max;
+            }
+            else if (x<min) {
+                return min;
+            }
+            return x;
         }
 
         static const interval empty, universe;
